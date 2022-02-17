@@ -8,37 +8,7 @@ import { findByLabelText } from "@testing-library/react";
 
 
 const App = () =>  {
-  const [data, setData] = useState([]);
   const [search, setSearch] = useState('karawang');
-  const getDataApi = async () => {
-
-    try {
-      const response = await fetch(`https://community-open-weather-map.p.rapidapi.com/find?q=${search}&cnt=1&mode=null&lon=0&type=link%2C%20accurate&lat=0&units=imperial%2C%20metric`, {
-        "method": "GET",
-        "headers": {
-          "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-          "x-rapidapi-key": "04bec7c583msh20d9e28aafbaa9dp11c4a1jsn363089ebe381"
-        }
-      });
-
-        const data = await response.json();
-        // console.log(data);
-        setData({
-          kota : data.list[0].name,
-          negara : data.list[0].sys.country,
-          cuaca : data.list[0].weather[0].main,
-          deskripsi : data.list[0].weather[0].description,
-        });
-        // console.log(data.list[0].weather[0].main);
-        // console.log(data.city.name);
-    } catch (error) {
-      
-    }
-  }
-
-  useEffect(() => {
-    getDataApi()
-  }, [])
 
   const searchDataHandler = (e) => {
     setSearch(e);
@@ -61,7 +31,7 @@ const App = () =>  {
      
         <Row>
             <Col md={3}>
-              <LayoutCard data={data}/>
+              <LayoutCard dataSearch={search}/>
             </Col>
         </Row>
         
