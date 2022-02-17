@@ -53,7 +53,6 @@ const LayoutCard = (props) => {
                     <ListGroup className="list-group-flush">
                         <ListGroupItem>Cuaca : {data.cuaca}</ListGroupItem>
                         <ListGroupItem>Negara : {data.negara}</ListGroupItem>
-                        <ListGroupItem>dari props : {props.dataSearch}</ListGroupItem>
                     </ListGroup>
                 </Card>
               </div>
