@@ -4,8 +4,9 @@ import rain from "../asset/gif/rain.gif";
 
 const LayoutCard = (props) => {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
     const getDataApi = async () => {
-        console.log(props.dataSearch);
+        setLoading(true);
         try {
           const response = await fetch(`https://community-open-weather-map.p.rapidapi.com/find?q=${props.dataSearch}&cnt=1&mode=null&lon=0&type=link%2C%20accurate&lat=0&units=imperial%2C%20metric`, {
             "method": "GET",
@@ -16,13 +17,14 @@ const LayoutCard = (props) => {
           });
     
             const data = await response.json();
-            // console.log(data);
+            console.log(data);
             setData({
               kota : data.list[0].name,
               negara : data.list[0].sys.country,
               cuaca : data.list[0].weather[0].main,
               deskripsi : data.list[0].weather[0].description,
             });
+            setLoading(false);
             // console.log(data.list[0].weather[0].main);
             // console.log(data.city.name);
         } catch (error) {
@@ -32,26 +34,31 @@ const LayoutCard = (props) => {
     
       useEffect(() => {
         getDataApi()
-      }, [])
+      }, [props.dataSearch])
 
     return (
-       
-        <div onClick={() => window.open('https://www.flaticon.com/free-icons/rain', '_blank') } >
-            <Card >
-                <Card.Img variant="top" src={rain} />
-                <Card.Body>
-                    <Card.Title>{data.kota}</Card.Title>
-                    <Card.Text>
-                        {data.deskripsi}
-                    </Card.Text>
-                </Card.Body>
+       <section>
+         {loading && <p>Loading ... </p>}
+         {!loading && (
+            <div onClick={() => window.open('https://www.flaticon.com/free-icons/rain', '_blank') } >
+                <Card >
+                    <Card.Img variant="top" src={rain} />
+                    <Card.Body>
+                        <Card.Title>{data.kota}</Card.Title>
+                        <Card.Text>
+                            {data.deskripsi}
+                        </Card.Text>
+                    </Card.Body>
 
-                <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cuaca : {data.cuaca}</ListGroupItem>
-                    <ListGroupItem>Negara : {data.negara}</ListGroupItem>
-                </ListGroup>
-            </Card>
-        </div>
+                    <ListGroup className="list-group-flush">
+                        <ListGroupItem>Cuaca : {data.cuaca}</ListGroupItem>
+                        <ListGroupItem>Negara : {data.negara}</ListGroupItem>
+                        <ListGroupItem>dari props : {props.dataSearch}</ListGroupItem>
+                    </ListGroup>
+                </Card>
+              </div>
+          )}
+        </section>
         
     );
 }

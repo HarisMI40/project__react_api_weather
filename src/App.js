@@ -1,9 +1,10 @@
-import React,{useEffect, useState, useRef} from "react";
+import React,{useEffect, useState} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import {Container, Row, Col} from "react-bootstrap";
 import LayoutNavbar from "./Components/LayoutNavbar";
 import LayoutCard from "./Components/LayoutCard";
+import Search from "./Components/Search";
 import { findByLabelText } from "@testing-library/react";
 
 
@@ -37,29 +38,6 @@ const App = () =>  {
         
       </Container>
     </div>
-  );
-}
-
-function Search(props) {
-  const data = useRef('');
-
-  const divStyle = {  
-   marginTop:'10px',
-   marginBottom:'10px',
-   display:'flex',
-   justifyContent:'space-between',
-  }
-
-  const formSubmitHandler = event => {
-    event.preventDefault();
-    props.onSearchdData(data.current.value);
-  }
-
-  return (
-    <form onSubmit={formSubmitHandler} style={divStyle}>
-      <input type="text" ref={data} />
-      <button>Cari</button>
-    </form>
   );
 }
 export default App;
