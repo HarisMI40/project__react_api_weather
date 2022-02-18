@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/project__react_api_weather/static/css/main.34092488.css",
+    "main.js": "/project__react_api_weather/static/js/main.bda2b034.js",
+    "static/js/787.65b0fb21.chunk.js": "/project__react_api_weather/static/js/787.65b0fb21.chunk.js",
+    "static/media/snowflake.gif": "/project__react_api_weather/static/media/snowflake.60cb9b9f87ac3298f57e.gif",
+    "static/media/sun.gif": "/project__react_api_weather/static/media/sun.ab75a97f374403b2151f.gif",
+    "static/media/cloudy.gif": "/project__react_api_weather/static/media/cloudy.2aed9615be802c2833e3.gif",
+    "static/media/rain.gif": "/project__react_api_weather/static/media/rain.11d899146154e8dbf1b9.gif",
+    "static/media/storm.gif": "/project__react_api_weather/static/media/storm.1331a4abcbe2de4516be.gif",
+    "index.html": "/project__react_api_weather/index.html",
+    "main.34092488.css.map": "/project__react_api_weather/static/css/main.34092488.css.map",
+    "main.bda2b034.js.map": "/project__react_api_weather/static/js/main.bda2b034.js.map",
+    "787.65b0fb21.chunk.js.map": "/project__react_api_weather/static/js/787.65b0fb21.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.34092488.css",
+    "static/js/main.bda2b034.js"
+  ]
+}
