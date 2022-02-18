@@ -1,9 +1,14 @@
 import { useState,useEffect } from "react";
 import { Card, Button, ListGroup, ListGroupItem } from "react-bootstrap";
 import rain from "../asset/gif/rain.gif";
+import cloudy from "../asset/gif/cloudy.gif";
+import snowflake from "../asset/gif/snowflake.gif";
+import storm from "../asset/gif/storm.gif";
+import sun from "../asset/gif/sun.gif";
 
 const LayoutCard = (props) => {
     const [data, setData] = useState([]);
+    const [img, setImg] = useState();
     const [loading, setLoading] = useState(false);
     const getDataApi = async () => {
         setLoading(true);
@@ -24,6 +29,20 @@ const LayoutCard = (props) => {
               cuaca : data.list[0].weather[0].main,
               deskripsi : data.list[0].weather[0].description,
             });
+
+            let dataCuaca = data.list[0].weather[0].main;
+            switch (dataCuaca.toLowerCase()) {
+              case 'clouds':
+                setImg(<Card.Img variant="top" src={cloudy} />);
+                break;
+
+                case 'rain':
+                  setImg(<Card.Img variant="top" src={rain} />);
+                break;
+            
+              default:
+                break;
+            }
             setLoading(false);
             // console.log(data.list[0].weather[0].main);
             // console.log(data.city.name);
@@ -35,6 +54,9 @@ const LayoutCard = (props) => {
       useEffect(() => {
         getDataApi()
       }, [props.dataSearch])
+      
+
+      
 
     return (
        <section>
@@ -42,7 +64,7 @@ const LayoutCard = (props) => {
          {!loading && (
             <div onClick={() => window.open('https://www.flaticon.com/free-icons/rain', '_blank') } >
                 <Card >
-                    <Card.Img variant="top" src={rain} />
+                    {img}
                     <Card.Body>
                         <Card.Title>{data.kota}</Card.Title>
                         <Card.Text>
