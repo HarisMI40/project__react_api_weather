@@ -19,23 +19,24 @@ const App = () =>  {
 
   // const data = [{id: "a1"},{id:"a2"}];
   return (
-    <div className="App">
+    <div className="App" style={{width:"50%",margin:"0 auto"}}>
 
-      <LayoutNavbar />
+      {/* <LayoutNavbar /> */}
       <Container>
-        <Row>
-          <Col md={3}>
-            <Search onSearchdData={searchDataHandler} />
-          </Col>
-        </Row>
-      
-     
-        <Row>
-            <Col md={3}>
-              <LayoutCard dataSearch={search}/>
+        <section style={{width:"70%", margin:"20% auto"}}>
+          <div>
+            <Col>
+              <Search onSearchdData={searchDataHandler} />
             </Col>
-        </Row>
+          </div>
         
+      
+          <div>
+              <Col>
+                <LayoutCard dataSearch={search}/>
+              </Col>
+          </div>
+        </section>
       </Container>
     </div>
   );

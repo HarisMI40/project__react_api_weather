@@ -63,7 +63,7 @@ const LayoutCard = (props) => {
          {loading && <p>Loading ... </p>}
          {!loading && (
             <div onClick={() => window.open('https://www.flaticon.com/free-icons/rain', '_blank') } >
-                <Card >
+                <Card>
                     {img}
                     <Card.Body>
                         <Card.Title>{data.kota}</Card.Title>
@@ -73,8 +73,8 @@ const LayoutCard = (props) => {
                     </Card.Body>
 
                     <ListGroup className="list-group-flush">
-                        <ListGroupItem>Cuaca : {data.cuaca}</ListGroupItem>
-                        <ListGroupItem>Negara : {data.negara}</ListGroupItem>
+                        <ListGroupItem>Weather : {data.cuaca}</ListGroupItem>
+                        <ListGroupItem>City : {data.negara}</ListGroupItem>
                     </ListGroup>
                 </Card>
               </div>
